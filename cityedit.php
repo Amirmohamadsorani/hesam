@@ -1,11 +1,11 @@
 <?php
-include("tag_a.php");
+include("navbar.php");
 ?>
 <?php
 $id=$_GET["id"];
 include("connect.php");
 
-$b=mysqli_query($a,"SELECT * FROM `mahsol` WHERE `id`=$id");
+$b=mysqli_query($a,"SELECT * FROM `product` WHERE `id`=$id");
 mysqli_close($a);
 $row=mysqli_fetch_array($b);
 ?>
@@ -27,7 +27,7 @@ $row=mysqli_fetch_array($b);
 
 
 <?php
-include("footer2.html");
+include("footer.php");
 ?>
 
 

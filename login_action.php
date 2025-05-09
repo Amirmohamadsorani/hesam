@@ -14,6 +14,7 @@ include("header2.php");
         header("Location: header3.php?msg=success");
         $_SESSION["login"] = true;
         $_SESSION["admin"]=$row["admin"];
+        $_SESSION["id"]=$row["id"];
     } else {
         header("Location: header3.php?msg=error");
     }

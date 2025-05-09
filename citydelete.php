@@ -1,11 +1,11 @@
-<?php include("tag_a.php")?>
+<?php include("navbar.php")?>
 <?php
 $id = $_GET["id"];
 include("connect.php");
 if (!$a) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$query = "SELECT imageurl FROM mahsol WHERE id = $id";
+$query = "SELECT imageurl FROM product WHERE id = $id";
 $result = mysqli_query($a, $query);
 if ($result) {
     $row = mysqli_fetch_assoc($result);
@@ -13,11 +13,11 @@ if ($result) {
     if (!empty($fileurl) && file_exists($fileurl)) {
         $delete = unlink($fileurl);
         if ($delete) {
-            $delete_query = "DELETE FROM mahsol WHERE id = $id";
+            $delete_query = "DELETE FROM product WHERE id = $id";
             $delete_result = mysqli_query($a, $delete_query);
             if ($delete_result) {
                 echo "<script>
-                        location.replace('menu_mahsol.php');
+                        location.replace('modiriat.php');
                       </script>";
             } else {
                 echo "خطا در حذف رکورد از پایگاه داده";
@@ -34,5 +34,5 @@ if ($result) {
 mysqli_close($a);
 ?>
 <?php
-include("footer2.html");
+include("footer.php");
 ?>
